@@ -1,0 +1,6 @@
+- name: Hello World UAT Deployment
+  hosts: all
+  tasks:
+    - name: Hello Message from the UAT environment
+      debug:
+        msg: "Hello World! says UAT"
