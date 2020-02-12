@@ -1,6 +1,6 @@
-- name: Hello World UAT Deployment
+- name: UAT Deployment
   hosts: all
   tasks:
-    - name: Hello Message from the UAT environment
+    - name: Message from the UAT environment
       debug:
-        msg: "Hello World! says UAT"
+        msg: "Deploying application {{ application_name }} version {{ application_version }} to UAT environment"
