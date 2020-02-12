@@ -1,0 +1,6 @@
+- name: Hello World SIT Deployment
+  hosts: all
+  tasks:
+    - name: Hello Message from the SIT environment
+      debug:
+        msg: "Hello World! says SIT"
