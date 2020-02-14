@@ -1,0 +1,7 @@
+- name: DEVELOPMENT Deployment
+  hosts: all
+  tasks:
+    - name: Message from the DEVELOPMENT environment
+      debug:
+        msg: "Deploying application {{ application_name }} version {{ application_version }} to DEVELOPMENT environment"
+        
