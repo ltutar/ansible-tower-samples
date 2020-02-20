@@ -1,4 +1,4 @@
-- name: {{ tower_inventory_name }} Deployment
+- name: ADT Deployment
   hosts: all
   tasks:
     - name: Message from the {{ tower_inventory_name }} environment
