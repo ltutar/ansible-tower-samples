@@ -1,6 +1,0 @@
-- name: SIT Deployment
-  hosts: all
-  tasks:
-    - name: Message from the SIT environment
-      debug:
-        msg: "Deploying application {{ application_name }} version {{ application_version }} to SIT environment"
