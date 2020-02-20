@@ -10,7 +10,7 @@
     - name: Download from Artifactory
       get_url:
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ item }}"
-        dest: /tmp/{{ item.rsplit('/', 1)[1] }}
+        dest: /tmp/{{ item }}
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
       with_items:
