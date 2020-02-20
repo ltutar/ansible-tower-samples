@@ -3,7 +3,6 @@
   tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/{{ item }}"
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ item }}"
         dest: /tmp/levent.pdf
         headers:
