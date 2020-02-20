@@ -3,5 +3,5 @@
   tasks:
     - name: Message from the DEVELOPMENT environment
       debug:
-        msg: "Deploying application {{ application_name }} version {{ application_version }} to DEVELOPMENT environment {{ ARTIFACTORY_HOSTNAME }} {{ ansible_env.ARTIFACTORY_HOSTNAME }}"
+        msg: "Deploying application {{ application_name }} version {{ application_version }} to DEVELOPMENT environment {{ ARTIFACTORY_HOSTNAME }} {{ tower_inventory_name }}"
         
