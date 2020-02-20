@@ -3,14 +3,14 @@
   tasks:
     - name: ansible create directory example
       file:
-        path: /tmp/{{ item.rsplit('/', 1)[0] }}
+        path: {{ artifactory_download_directory }}/{{ item.rsplit('/', 1)[0] }}
         state: directory
       with_items:
            - "{{ artifactory_repository_path.split(',') }}"
     - name: Download from Artifactory
       get_url:
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ item }}"
-        dest: /tmp/{{ item }}
+        dest: {{ artifactory_download_directory }}/{{ item }}
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
       with_items:
