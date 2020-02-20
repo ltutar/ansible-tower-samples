@@ -1,0 +1,7 @@
+- name: {{ tower_inventory_name }} Deployment
+  hosts: all
+  tasks:
+    - name: Message from the {{ tower_inventory_name }} environment
+      debug:
+        msg: "Deploying application {{ application_name }} version {{ application_version }} to {{ tower_inventory_name }} environment {{ ARTIFACTORY_HOSTNAME }}"
+        
