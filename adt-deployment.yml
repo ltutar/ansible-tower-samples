@@ -12,4 +12,4 @@
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
       with_items:
-           - "{{ artifactory_repository_path }}"
+           - "{{ artifactory_repository_path.split(',') }}"
