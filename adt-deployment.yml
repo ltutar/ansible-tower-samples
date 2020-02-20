@@ -3,7 +3,7 @@
   tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ item }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/generic-local/var/local/adt/{{ item }}"
         dest: "/tmp/{{ item }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
