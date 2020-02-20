@@ -4,7 +4,7 @@
     - name: Download from Artifactory
       get_url:
         url: "http://192.168.130.11:8081/artifactory/generic-local/var/local/adt/Cypress.pdf"
-        dest: "/tmp/levent.pdf"
+        dest: "/tmp/levent/a.pdf"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
     - name: Message from the {{ tower_inventory_name }} environment
