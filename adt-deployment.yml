@@ -1,6 +1,10 @@
 - name: ADT Deployment
   hosts: all
   tasks:
+    - name: ansible create directory example
+       file:
+         path: /tmp/devops_directory
+         state: directory
     - name: Download from Artifactory
       get_url:
         url: "http://192.168.130.11:8081/artifactory/generic-local/var/local/adt/good_test.py"
