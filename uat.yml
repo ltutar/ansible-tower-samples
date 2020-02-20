@@ -1,6 +1,0 @@
-- name: UAT Deployment
-  hosts: all
-  tasks:
-    - name: Message from the UAT environment
-      debug:
-        msg: "Deploying application {{ application_name }} version {{ application_version }} to UAT environment"
