@@ -8,8 +8,8 @@
         headers:
           X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
        with_items:
-         - "{{ artifactory_repository_path.split(',') }}"
+          - "{{ artifactory_repository_path.split(',') }}"
 
      - name: Message from the {{ tower_inventory_name }} environment
        debug:
-         msg: "Deploying application {{ application_name }} version {{ application_version }} to {{ tower_inventory_name }} environment"
+          msg: "Deploying application {{ application_name }} version {{ application_version }} to {{ tower_inventory_name }} environment"
