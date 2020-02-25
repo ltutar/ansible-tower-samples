@@ -16,9 +16,3 @@
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
       with_items:
            - "{{ artifactory_repository_path.split(',') }}"
-- name: ADT Deployment
-  hosts: all
-  tasks:
-     - name: Message from the {{ tower_inventory_name }} environment
-      debug:
-        msg: "Deploying application "
