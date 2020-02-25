@@ -4,7 +4,7 @@
     - name: Download the folder from Artifactory
       get_url:
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey={{ artifactory_folder_path.split('/')[0] }}&path={{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }}&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
-        validate_certs: ARTIFACTORY_VALIDATE_CERTIFICATES
+        validate_certs: "{{ ARTIFACTORY_VALIDATE_CERTIFICATES }}"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
