@@ -6,15 +6,16 @@
         path: "{{ artifactory_download_directory }}/{{ item.rsplit('/', 1)[0] }}"
         state: directory
       with_items:
-           - "{{ artifactory_repository_path.split(',') }}"
+           - "{{ artifactory_folder_path.split(',') }}"
+- name: ADT Deployment
+  hosts: all
+  tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ item }}"
-        dest: "{{ artifactory_download_directory }}/{{ item }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_folder_path }}"
+        dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
-      with_items:
-           - "{{ artifactory_repository_path.split(',') }}"
     - name: Message from the {{ tower_inventory_name }} environment
       debug:
-        msg: "Deploying application {{ application_name }} version {{ application_version }} to {{ tower_inventory_name }} environment"
+        msg: "Deploying application "
