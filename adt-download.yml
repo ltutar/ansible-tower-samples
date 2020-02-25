@@ -9,4 +9,4 @@
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
     - name: Message from the {{ tower_inventory_name }} environment
       debug:
-        msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }}"
+        msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }} and {{ ARTIFACTORY_VALIDATE_CERTIFICATES }} and {{ ARTIFACTORY_HTTP_PROXY }} "
