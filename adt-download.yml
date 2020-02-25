@@ -1,10 +1,7 @@
-- name: ADT Deployment
+- name: ADT Download
   hosts: all
   tasks:
-- name: ADT Deployment
-  hosts: all
-  tasks:
-    - name: Download from Artifactory
+    - name: Download the folder from Artifactory
       get_url:
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_folder_path }}?archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
