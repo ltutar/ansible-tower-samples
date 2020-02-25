@@ -3,7 +3,7 @@
   tasks:
     - name: Create directory for artifactory download
       file:
-        path: "{{ artifactory_download_directory }}/{{ item.rsplit('/', 1)[0] }}"
+        path: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}/{{ item.rsplit('/', 1)[0] }}"
         state: directory
       with_items:
            - "{{ artifactory_folder_path.split(',') }}"
