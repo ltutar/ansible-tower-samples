@@ -12,7 +12,7 @@
   tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_folder_path }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_folder_path }}?archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
