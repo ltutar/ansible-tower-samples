@@ -1,4 +1,4 @@
-- name: ADT Deployment
+- name: ADT Download
   hosts: all
   tasks:
     - name: Create directory for artifactory download
@@ -7,8 +7,6 @@
         state: directory
       with_items:
            - "{{ artifactory_repository_path.split(',') }}"
-- name: ADT Deployment
-  hosts: all
   tasks:
     - name: Download from Artifactory
       get_url:
@@ -18,6 +16,9 @@
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
       with_items:
            - "{{ artifactory_repository_path.split(',') }}"
-- name: Message from the {{ tower_inventory_name }} environment
+- name: ADT Deployment
+  hosts: all
+  tasks:
+     - name: Message from the {{ tower_inventory_name }} environment
       debug:
         msg: "Deploying application "
