@@ -1,12 +1,6 @@
 - name: ADT Deployment
   hosts: all
   tasks:
-    - name: Create directory for artifactory download
-      file:
-        path: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}/{{ item.rsplit('/', 1)[0] }}"
-        state: directory
-      with_items:
-           - "{{ artifactory_folder_path.split(',') }}"
 - name: ADT Deployment
   hosts: all
   tasks:
