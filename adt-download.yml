@@ -3,7 +3,7 @@
   tasks:
     - name: Download the folder from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/api/archive/download/{{ artifactory_folder_path | regex_replace('\\/$', '') }}?archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey=adt&path=newADT/Iteration121/Levent_ADT_Build_f0f02e781&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
