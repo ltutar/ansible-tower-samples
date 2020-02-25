@@ -3,7 +3,7 @@
   tasks:
     - name: Download the folder from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey={{ artifactory_folder_path }}.split("/")[0]&path={{ artifactory_folder_path | regex_replace('\\/$', '') }}.split("/")[1:]&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey="{{ artifactory_folder_path.split("/")[0] }}&path={{ artifactory_folder_path | regex_replace('\\/$', '').split("/")[1:] }}&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
