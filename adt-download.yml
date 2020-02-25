@@ -3,10 +3,10 @@
   tasks:
     - name: Download the folder from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey="{{ artifactory_folder_path.split("/")[0] }}&path={{ artifactory_folder_path.split("/")[1:] }}&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey={{ artifactory_folder_path.split('/')[0] }}&path={{ artifactory_folder_path.split('/')[1:] }}&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
     - name: Message from the {{ tower_inventory_name }} environment
       debug:
-        msg: "Deploying application "
+        msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] }}"
