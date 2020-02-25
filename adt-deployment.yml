@@ -7,10 +7,9 @@
         state: directory
       with_items:
            - "{{ artifactory_repository_path.split(',') }}"
-  tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_repository_path }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_repository_path }}/{{ item }}"
         dest: "{{ artifactory_download_directory }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
