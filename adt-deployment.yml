@@ -6,13 +6,13 @@
         path: "{{ artifactory_download_directory }}/{{ item.rsplit('/', 1)[0] }}"
         state: directory
       with_items:
-           - "{{ artifactory_folder_path.split(',') }}"
+           - "{{ artifactory_repository_path.split(',') }}"
 - name: ADT Deployment
   hosts: all
   tasks:
     - name: Download from Artifactory
       get_url:
-        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_folder_path }}"
+        url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/{{ artifactory_repository_path }}"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
