@@ -16,6 +16,8 @@
         dest: "{{ artifactory_download_directory }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
-    - name: Message from the {{ tower_inventory_name }} environment
+      with_items:
+           - "{{ artifactory_repository_path.split(',') }}"
+- name: Message from the {{ tower_inventory_name }} environment
       debug:
         msg: "Deploying application "
