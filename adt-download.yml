@@ -8,6 +8,9 @@
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
            X-JFrog-Art-Api: "{{ ARTIFACTORY_API_TOKEN }}"
+      environment:
+        http_proxy: "{{ ARTIFACTORY_HTTP_PROXY }}"
+        https_proxy: "{{ ARTIFACTORY_HTTPS_PROXY }}"
     - name: Message from the {{ tower_inventory_name }} environment
       debug:
         msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }} and {{ ARTIFACTORY_VALIDATE_CERTIFICATES }} and {{ ARTIFACTORY_HTTP_PROXY | length > 0 }} and {{ ARTIFACTORY_HTTP_PROXY is defined }} "
