@@ -4,6 +4,7 @@
     - name: Download the folder from Artifactory
       get_url:
         url: "{{ ARTIFACTORY_HOSTNAME }}/artifactory/ui/artifactactions/downloadfolder?repoKey={{ artifactory_folder_path.split('/')[0] }}&path={{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }}&archiveType={{ ARTIFACTORY_ARCHIVE_TYPE }}&includeChecksumFiles=false"
+        use_proxy: "{{ ARTIFACTORY_USE_PROXY }}"
         validate_certs: "{{ ARTIFACTORY_VALIDATE_CERTIFICATES }}"
         dest: "{{ ARTIFACTORY_DOWNLOAD_DIRECTORY }}"
         headers:
@@ -13,4 +14,4 @@
         https_proxy: "{{ ARTIFACTORY_HTTPS_PROXY }}"
     - name: Message from the {{ tower_inventory_name }} environment
       debug:
-        msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }} and {{ ARTIFACTORY_VALIDATE_CERTIFICATES }} and {{ ARTIFACTORY_HTTP_PROXY | length > 0 }} and {{ ARTIFACTORY_HTTP_PROXY is defined }} "
+        msg: "Deploying application {{ artifactory_folder_path.split('/')[0] }} and {{ artifactory_folder_path.split('/')[1:] | join('/') | regex_replace('\\/$', '') }}"
